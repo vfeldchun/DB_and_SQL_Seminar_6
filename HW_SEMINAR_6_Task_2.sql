@@ -6,21 +6,21 @@ DELIMITER //
 
 CREATE PROCEDURE print_even_number_in_range
 (
-	IN start_number INT,
+    IN start_number INT,
     IN end_number INT
 )
 BEGIN
-	DECLARE i INT DEFAULT 0;
-	DECLARE result TEXT DEFAULT '';
+    DECLARE i INT DEFAULT 0;
+    DECLARE result TEXT DEFAULT '';
     
     -- Установим стартоое четное число
     SET i = IF(ABS(start_number) % 2 = 0, start_number, start_number + 1);
     
-	-- Определим количество четных чисел
-	WHILE i <= end_number DO
-		SET result = CONCAT(result, i, ' ');
+    -- Определим количество четных чисел
+    WHILE i <= end_number DO
+	SET result = CONCAT(result, i, ' ');
         SET i = i + 2;
-	END WHILE;
+    END WHILE;
     
     -- Выводим результат
     SELECT RTRIM(result) AS 'Even Numbers';
